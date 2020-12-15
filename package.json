@@ -9,7 +9,8 @@
   "scripts": {
     "start": "NODE_ENV=production node ./src",
     "dev": "NODE_ENV=development nodemon ./src",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "kill": "fuser -k 3000/tcp"
   },
   "repository": {
     "type": "git",
