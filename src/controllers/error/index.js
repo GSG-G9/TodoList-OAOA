@@ -1,7 +1,8 @@
-const { notFoundHandler } = require('./notFoundHandler');
+const { notFoundRoute, notFound } = require('./notFound');
 const { errorHandler } = require('./errorHandler');
 
 module.exports = {
-  notFoundHandler,
+  notFoundRoute,
   errorHandler,
+  notFound,
 };

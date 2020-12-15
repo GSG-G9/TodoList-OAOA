@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const errorhandler = (err, req, res, next) => {
+const errorHandler = (err, req, res, next) => {
   const status = err.status || 500;
   status.json({
     title: 'something went wrong',
@@ -9,5 +9,5 @@ const errorhandler = (err, req, res, next) => {
 };
 
 module.exports = {
-  errorhandler,
+  errorHandler,
 };

@@ -6,7 +6,7 @@ const express = require('express');
 const logger = require('morgan');
 
 const router = require('./routes');
-const { errorHandler, notFoundHandler } = require('./controllers');
+const { errorHandler, notFound } = require('./controllers');
 
 const app = express();
 
@@ -20,7 +20,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(router);
-// app.use(notFoundHandler);
-// app.use(errorHandler);
+
+app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;

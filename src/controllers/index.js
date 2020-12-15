@@ -1,4 +1,8 @@
-const { errorHandler, notFoundHandler } = require('./error');
+const {
+  errorHandler,
+  notFoundRoute,
+  notFound,
+} = require('./error');
 const {
   addTaskHandler,
   deleteTaskHandler,
@@ -13,7 +17,8 @@ const {
 
 module.exports = {
   errorHandler,
-  notFoundHandler,
+  notFoundRoute,
+  notFound,
   addTaskHandler,
   deleteTaskHandler,
   updateTaskHandler,
