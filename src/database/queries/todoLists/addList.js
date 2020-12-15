@@ -1,9 +1,9 @@
 const connection = require('../../config/connection');
 
-const deleteTask = () => {
+const addList = () => {
   const sql = {
   };
   return connection.query(sql);
 };
 
-module.exports = { deleteTask };
+module.exports = { addList };
