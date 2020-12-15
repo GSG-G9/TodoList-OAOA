@@ -9,7 +9,7 @@
   "scripts": {
     "start": "NODE_ENV=production node ./src",
     "dev": "NODE_ENV=development nodemon ./src",
-    "test": "NODE_ENV=test jest" 
+    "test": "NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",
