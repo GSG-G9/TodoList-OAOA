@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/GSG-G9/TodoList-OAOA#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
     "env2": "^2.2.2",
     "express": "^4.17.1",
     "joi": "^17.3.0",
