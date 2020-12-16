@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const { sign } = require('../../utils/jwt');
-const { getUser } = require('../../database/queries/login');
+const { login } = require('../../database/queries');
 const { boomify } = require('../../utils/boomify');
 const { loginSchema } = require('../../utils/validation/loginSchema');
 
@@ -12,10 +12,10 @@ const loginHandler = (req, res, next) => {
       throw boomify(400, error.message);
     }
     let userId = '';
-    getUser(email)
+    login(email)
       .then((data) => {
         if (data.rows.length === 0) {
-          return boomify(400, 'Bad request');
+          throw boomify(400, 'Bad request');
         }
         userId = data.rows[0].id;
         return bcrypt.compare(password, data.rows[0].password);
@@ -29,7 +29,8 @@ const loginHandler = (req, res, next) => {
         res.status(200).json({
           msg: 'login succeed',
         });
-      });
+      })
+      .catch((err) => next(err));
   } catch (err) {
     next(err);
   }
