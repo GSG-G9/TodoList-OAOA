@@ -1,9 +1,11 @@
+const { required } = require('joi');
 const { addTask, deleteTask, updateTask } = require('./tasks');
 const { addList, deleteList, updateList } = require('./todoLists');
 const { getUserData } = require('./getUserData');
 const { login } = require('./login');
 const { signup } = require('./signup');
 const { isUserExist } = require('./isUserExist');
+const { checkUser } = require('./checkUserIfExists');
 
 module.exports = {
   addTask,
@@ -16,4 +18,5 @@ module.exports = {
   login,
   signup,
   isUserExist,
+  checkUser,
 };
