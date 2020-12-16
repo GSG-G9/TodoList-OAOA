@@ -3,6 +3,7 @@ const { addList, deleteList, updateList } = require('./todoLists');
 const { getUserData } = require('./getUserData');
 const { login } = require('./login');
 const { signup } = require('./signup');
+const { isUserExist } = require('./isUserExist');
 
 module.exports = {
   addTask,
@@ -14,4 +15,5 @@ module.exports = {
   getUserData,
   login,
   signup,
+  isUserExist,
 };

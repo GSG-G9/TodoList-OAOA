@@ -1,10 +1,10 @@
 BEGIN;
-DROP TABLE IF EXIST users tasks todoList CASCADE;
+DROP TABLE IF EXISTS users, tasks, todoLists CASCADE;
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   firstName VARCHAR(33)  NOT NULL,
   lastName VARCHAR(33) NOT NULL,
-  email VARCHAR(55) NOT NULL,
+  email VARCHAR(55) NOT NULL UNIQUE,
   password VARCHAR(33) NOT NULL,
   createdAt DATE NOT NULL
 );
@@ -18,6 +18,6 @@ CREATE TABLE tasks(
   details VARCHAR(33) NOT NULL,
   status BOOLEAN  DEFAULT false,
   todoListId INTEGER REFERENCES todoLists(id) ON UPDATE CASCADE
-)
+);
 
-COMMIT:
+COMMIT;

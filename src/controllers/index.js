@@ -10,7 +10,7 @@ const {
   addListHandler,
   deleteListHandler,
   updateListHandler,
-  getUserData,
+  getUserDataHandler,
   loginHandler,
   signupHandler,
 } = require('./user');
@@ -25,7 +25,7 @@ module.exports = {
   addListHandler,
   deleteListHandler,
   updateListHandler,
-  getUserData,
+  getUserDataHandler,
   loginHandler,
   signupHandler,
 };
