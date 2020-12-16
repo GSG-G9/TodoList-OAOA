@@ -1,7 +1,10 @@
 const router = require('express').Router();
-const { addTaskHandler } = require('../controllers');
+
+const { updateTaskHandler, deleteTaskHandler, addTaskHandler } = require('../controllers');
 const { authenticate } = require('../middleware/authentication');
 
 router.post('/', authenticate, addTaskHandler);
+router.delete('/', authenticate, deleteTaskHandler);
+router.put('/', authenticate, updateTaskHandler);
 
 module.exports = router;

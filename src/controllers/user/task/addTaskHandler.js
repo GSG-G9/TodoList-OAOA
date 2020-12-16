@@ -1,9 +1,3 @@
-const addTaskHandler = (req, res, next) => {
-
-};
-
-module.exports = { addTaskHandler };
-
 const { addTask } = require('../../../database/queries');
 const { addListSchema } = require('../../../utils/validation');
 const { boomify } = require('../../../utils/boomify');

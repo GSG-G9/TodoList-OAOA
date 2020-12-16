@@ -7,7 +7,7 @@ const addListHandler = (req, res, next) => {
     const { todoListTitle } = req.body;
     const { userId } = req;
 
-    const { error } = addListSchema.validateAsync({ todoListTitle });
+    const { error } = addListSchema.validate({ todoListTitle });
     if (error) {
       throw boomify(400, error.message);
     }
