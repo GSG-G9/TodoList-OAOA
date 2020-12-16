@@ -7,10 +7,10 @@ switch (process.env.NODE_ENV) {
     DB_URL = process.env.DATABASE_URL;
     break;
   case 'development':
-    DB_URL = process.env.DB_URL_ENV;
+    DB_URL = process.env.DB_URL_DEV;
     break;
   case 'test':
-    DB_URL = process.env.DB_URL_ENV;
+    DB_URL = process.env.DB_URL_TEST;
     break;
   default:
     throw new Error('there is no database url');
