@@ -14,6 +14,7 @@ const authenticate = (req, res, next) => {
         const { isThere, userId } = re;
         if (isThere) {
           req.userId = userId;
+          next();
         } else {
           throw new Error();
         }
