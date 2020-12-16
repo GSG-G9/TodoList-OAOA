@@ -10,7 +10,7 @@ const {
   updateListHandler,
 } = require('./todoList');
 
-const { getUserData } = require('./getUserData');
+const { getUserDataHandler } = require('./getUserDataHandler');
 const { loginHandler } = require('./loginHandler');
 const { signupHandler } = require('./signupHandler');
 
@@ -21,7 +21,7 @@ module.exports = {
   addListHandler,
   deleteListHandler,
   updateListHandler,
-  getUserData,
+  getUserDataHandler,
   loginHandler,
   signupHandler,
 };

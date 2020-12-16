@@ -1,5 +1,5 @@
 BEGIN;
-DROP TABLE IF EXISTS users, tasks, todoList CASCADE;
+DROP TABLE IF EXISTS users, tasks, todoLists CASCADE;
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   firstName VARCHAR(33)  NOT NULL,
