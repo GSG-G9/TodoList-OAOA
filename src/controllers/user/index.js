@@ -13,6 +13,7 @@ const {
 const { getUserDataHandler } = require('./getUserDataHandler');
 const { loginHandler } = require('./loginHandler');
 const { signupHandler } = require('./signupHandler');
+const { logout } = require('./logout');
 
 module.exports = {
   addTaskHandler,
@@ -24,4 +25,5 @@ module.exports = {
   getUserDataHandler,
   loginHandler,
   signupHandler,
+  logout,
 };

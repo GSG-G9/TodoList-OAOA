@@ -13,6 +13,7 @@ const {
   getUserDataHandler,
   loginHandler,
   signupHandler,
+  logout,
 } = require('./user');
 
 module.exports = {
@@ -28,4 +29,5 @@ module.exports = {
   getUserDataHandler,
   loginHandler,
   signupHandler,
+  logout,
 };

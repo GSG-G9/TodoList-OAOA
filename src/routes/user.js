@@ -4,6 +4,6 @@ const { authenticate } = require('../middleware/authentication');
 
 router.get('/getData', authenticate, getUserDataHandler);
 router.post('/signup', signupHandler);
-router.get('/login', loginHandler);
+router.post('/login', loginHandler);
 
 module.exports = router;
