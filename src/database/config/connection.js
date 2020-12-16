@@ -21,4 +21,4 @@ const option = {
   ssl: process.env.NODE_ENV === 'production',
 };
 
-module.export = new Pool(option);
+module.exports = new Pool(option);

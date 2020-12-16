@@ -7,33 +7,32 @@ const getUserData = (userId) => {
     values: [userId],
   };
 
-  return connection.query(sql).than((data) => data.rows[0])
-    .than((userInfo) => {
+  return connection.query(sql).then((data) => data.rows[0])
+    .then((userInfo) => {
       userData.userInfo = userInfo;
       // new sql query get all task data
       sql = {
-        text: `SELECT tasks.id AS taskId, tasks.details, tasks.status, todolists.id AS todoListID, todolists.title FROM tasks INNER JOIN todolists
-      ON tasks.todolistid = todoListID WHERE todolists.userid = 1;`,
+        text: 'SELECT tasks.id AS taskId, tasks.details, tasks.status, todolists.id AS todoListID, todolists.title FROM tasks INNER JOIN todolists ON tasks.todolistid = todoListID WHERE todolists.userid = $1;',
         values: [userId],
       };
       return connection.query(sql);
     }).then((data) => data.rows)
     .then((data) => {
       // filtering the data
+      userData.userLists = {};
       data.forEach((item) => {
         const {
-          todolistId, taskId, details, status, title,
+          todolistid, taskid, details, status, title,
         } = item;
 
-        let todolistidOnUser = userData.userLists[todolistId];
-        if (!todolistidOnUser) {
-          todolistidOnUser = {
+        if (!userData.userLists[todolistid]) {
+          userData.userLists[todolistid] = {
             title,
             tasks: [],
           };
         }
-        todolistidOnUser.tasks.push({
-          taskId,
+        userData.userLists[todolistid].tasks.push({
+          taskid,
           details,
           status,
         });
