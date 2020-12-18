@@ -25,10 +25,12 @@ const loginHandler = (req, res, next) => {
         }
         return sign({ userId });
       }).then((token) => {
-        res.cookie('token', token);
-        res.status(200).json({
-          msg: 'login succeed',
-        });
+        res
+          .cookie('token', token)
+          .status(200)
+          .json({
+            msg: 'login succeed',
+          });
       })
       .catch((err) => next(err));
   } catch (err) {
