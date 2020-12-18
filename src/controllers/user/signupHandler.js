@@ -8,7 +8,7 @@ const { checkUser } = require('../../database/queries');
 const signupHandler = (req, res, next) => {
   try {
     const {
-      firstName, lastName, password, email,
+      password, email,
     } = req.body;
     const { error } = signupSchema.validate(req.body);
     if (error) {
@@ -19,14 +19,7 @@ const signupHandler = (req, res, next) => {
         throw boomify(400, 'Email is already exists');
       }
       return bcrypt.hash(password, 10);
-    }).then(
-      (hash) => signup({
-        firstName,
-        lastName,
-        password: hash,
-        email,
-      }),
-    )
+    }).then((hash) => signup({ ...req.body, password: hash }))
       .then((data) => {
         res.json({ message: data });
       })
