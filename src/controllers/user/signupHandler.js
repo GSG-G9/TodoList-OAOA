@@ -28,5 +28,3 @@ const signupHandler = (req, res, next) => {
   }
 };
 module.exports = { signupHandler };
-
-// take body from request => validate => check email if exist => hash password =>  insert into DB
