@@ -1,9 +1,8 @@
 const bcrypt = require('bcryptjs');
 
+const { checkUser, signup } = require('../../database/queries');
 const { signupSchema } = require('../../utils/validation');
-const { signup } = require('../../database/queries');
 const { boomify } = require('../../utils/boomify');
-const { checkUser } = require('../../database/queries');
 
 const signupHandler = (req, res, next) => {
   try {
@@ -12,7 +11,7 @@ const signupHandler = (req, res, next) => {
     } = req.body;
     const { error } = signupSchema.validate(req.body);
     if (error) {
-      throw boomify(400, 'Bad request');
+      throw boomify(400, error.message);
     }
     checkUser(email).then((isExists) => {
       if (isExists) {
@@ -23,7 +22,7 @@ const signupHandler = (req, res, next) => {
       .then((data) => {
         res.json({ message: data });
       })
-      .catch((err) => next(boomify(400, err.message)));
+      .catch(next);
   } catch (error) {
     next(error);
   }
