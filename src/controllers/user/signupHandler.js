@@ -1,18 +1,12 @@
 const bcrypt = require('bcryptjs');
-// const { signupSchema } = require('../../utils/validation');
-const Joi = require('joi');
+
+const { signupSchema } = require('../../utils/validation');
 const { signup } = require('../../database/queries');
 const { boomify } = require('../../utils/boomify');
 const { checkUser } = require('../../database/queries');
 
 const signupHandler = (req, res, next) => {
   try {
-    const signupSchema = Joi.object({
-      firstName: Joi.string().required(),
-      lastName: Joi.string().required(),
-      email: Joi.string().email().required(),
-      password: Joi.string().min(8).required(),
-    });
     const {
       firstName, lastName, password, email,
     } = req.body;
