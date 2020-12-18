@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const { sign } = require('../../utils/jwt');
 const { login } = require('../../database/queries');
 const { boomify } = require('../../utils/boomify');
-const { loginSchema } = require('../../utils/validation/loginSchema');
+const { loginSchema } = require('../../utils/validation');
 
 const loginHandler = (req, res, next) => {
   try {
