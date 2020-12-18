@@ -1,4 +1,5 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
+
 const { sign } = require('../../utils/jwt');
 const { login } = require('../../database/queries');
 const { boomify } = require('../../utils/boomify');
