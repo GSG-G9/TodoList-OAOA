@@ -15,13 +15,13 @@ const loginHandler = (req, res, next) => {
     login(email)
       .then((data) => {
         if (data.rows.length === 0) {
-          throw boomify(400, 'Bad request');
+          throw boomify(400, 'the password or email is wrong');
         }
         userId = data.rows[0].id;
         return bcrypt.compare(password, data.rows[0].password);
       }).then((succeed) => {
         if (!succeed) {
-          throw boomify(400, 'Bad request');
+          throw boomify(400, 'the password or email is wrong');
         }
         return sign({ userId });
       }).then((token) => {
